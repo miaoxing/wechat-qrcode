@@ -1,0 +1,44 @@
+body {
+  background: url(/plugins/wechat-qrcode/images/bg.jpg) 0 0;
+  background-size: cover;
+}
+
+.qrcode-container {
+  margin: 20px;
+  position: relative;
+  background-color: #fff;
+}
+
+.qrcode-header {
+  height: 50px;
+  background: #2e3644;
+  color: #838891;
+  text-align: center;
+  font-size: 16px;
+  line-height: 50px;
+}
+
+.qrcode-tips {
+  position: relative;
+  top: 12px;
+  text-align: center;
+}
+
+.qrcode-img-container {
+  position: relative
+}
+
+.qrcode-img {
+  width: 100%;
+}
+
+.qrcode-cover-img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 80px;
+  height: 80px;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  border-radius: 3px;
+}
