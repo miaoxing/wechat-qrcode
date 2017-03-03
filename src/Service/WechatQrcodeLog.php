@@ -9,6 +9,6 @@ class WechatQrcodeLog extends BaseModel
     protected $table = 'wechatQrcodeLogs';
 
     protected $providers = [
-        'db' => 'app.db'
+        'db' => 'app.db',
     ];
 }
