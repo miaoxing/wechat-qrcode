@@ -136,6 +136,6 @@ class Plugin extends \miaoxing\plugin\BasePlugin
         ]);
 
 
-        wei()->event->trigger('wechatUserFirstUnsubscribe');
+        wei()->event->trigger('wechatUserFirstUnsubscribe', [$user]);
     }
 }
