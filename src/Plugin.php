@@ -87,8 +87,6 @@ class Plugin extends \miaoxing\plugin\BasePlugin
             'type' => 1,
             'wechatQrcodeId' => $qrcode['id'],
         ]);
-
-        wei()->event->trigger('wechatUserFirstSubscribe', [$user]);
     }
 
     /**
@@ -134,8 +132,5 @@ class Plugin extends \miaoxing\plugin\BasePlugin
             'type' => 0,
             'wechatQrcodeId' => $qrcode['id'],
         ]);
-
-
-        wei()->event->trigger('wechatUserFirstUnsubscribe', [$user]);
     }
 }
