@@ -7,7 +7,7 @@ use Miaoxing\Wechat\Service\WechatAccount;
 use Miaoxing\Wechat\Service\WeChatQrcode;
 use Wei\WeChatApp;
 
-class Plugin extends \miaoxing\plugin\BasePlugin
+class Plugin extends \Miaoxing\Plugin\BasePlugin
 {
     protected $name = '微信二维码';
 
