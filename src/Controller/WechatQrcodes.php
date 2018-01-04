@@ -2,7 +2,7 @@
 
 namespace Miaoxing\WechatQrcode\Controller;
 
-class WechatQrcodes extends \miaoxing\plugin\BaseController
+class WechatQrcodes extends \Miaoxing\Plugin\BaseController
 {
     /**
      * 留空控制该页面需要登录
