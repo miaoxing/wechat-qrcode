@@ -29,7 +29,7 @@ class PluginTest extends \Miaoxing\Plugin\Test\BaseTestCase
 <MsgType><![CDATA[event]]></MsgType>
 <Event><![CDATA[SCAN]]></Event>
 <EventKey><![CDATA[1]]></EventKey>
-<Ticket><![CDATA[gQGS8DoAAAAAAAAAASxodHRwOi8vd2VpeGluLnFxLmNvbS9xL2FFMmtOc0hseEhpOU05YUdzR093AAIE0OAhUwMECAcAAA==]]></Ticket>
+<Ticket><![CDATA[]]></Ticket>
 </xml>');
 
         $this->assertEquals('success', $res);
@@ -61,7 +61,7 @@ class PluginTest extends \Miaoxing\Plugin\Test\BaseTestCase
 <MsgType><![CDATA[event]]></MsgType>
 <Event><![CDATA[subscribe]]></Event>
 <EventKey><![CDATA[qrscene_1]]></EventKey>
-<Ticket><![CDATA[gQGS8DoAAAAAAAAAASxodHRwOi8vd2VpeGluLnFxLmNvbS9xL2FFMmtOc0hseEhpOU05YUdzR093AAIE0OAhUwMECAcAAA==]]></Ticket>
+<Ticket><![CDATA[]]></Ticket>
 </xml>');
 
         $this->assertEquals('success', $res);
@@ -85,7 +85,7 @@ class PluginTest extends \Miaoxing\Plugin\Test\BaseTestCase
 <MsgType><![CDATA[event]]></MsgType>
 <Event><![CDATA[SCAN]]></Event>
 <EventKey><![CDATA[1]]></EventKey>
-<Ticket><![CDATA[gQGS8DoAAAAAAAAAASxodHRwOi8vd2VpeGluLnFxLmNvbS9xL2FFMmtOc0hseEhpOU05YUdzR093AAIE0OAhUwMECAcAAA==]]></Ticket>
+<Ticket><![CDATA[]]></Ticket>
 </xml>');
 
         $this->assertEquals('success', $res);
