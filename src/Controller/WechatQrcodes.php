@@ -34,8 +34,8 @@ class WechatQrcodes extends \Miaoxing\Plugin\BaseController
         $image = $api->getPermanentQrCodeUrl($qrcode['sceneId']);
 
         $headerTitle = ($user->getNickName() ?: '用户' . $user['id']) . '的二维码';
-        $this->pageConfig['displayHeader'] = false;
-        $this->pageConfig['displayFooter'] = false;
+        $this->layout->hideHeader();
+        $this->layout->hideFooter();
 
         return get_defined_vars();
     }
