@@ -26,7 +26,7 @@ class WechatQrcodes extends \Miaoxing\Plugin\BaseController
         }
 
         // 获取用户的二维码
-        $title = $this->setting('dealer.titleDist', '分销商') . '的二维码';
+        $title = $this->setting('dist.titleDist', '分销商') . '的二维码';
         $qrcode = wei()->weChatQrcode()->findOrCreateByUser($user, $title);
 
         $account = wei()->wechatAccount->getCurrentAccount();
