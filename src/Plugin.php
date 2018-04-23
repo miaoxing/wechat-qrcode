@@ -13,6 +13,16 @@ class Plugin extends \Miaoxing\Plugin\BasePlugin
 
     protected $description = '包含添加生成二维码功能';
 
+    public function onAdminNavGetNavs(&$navs, &$categories, &$subCategories)
+    {
+        $navs[] = [
+            'parentId' => 'wechat-account',
+            'url' => 'admin/wechat-qrcode/index',
+            'name' => '二维码管理',
+            'sort' => 700,
+        ];
+    }
+
     /**
      * 扫描并关注
      *
