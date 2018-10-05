@@ -85,10 +85,10 @@ class Plugin extends \Miaoxing\Plugin\BasePlugin
 
         // 判断是否已存在的用户
         if (!wei()->wechatQrcodeLog()->curApp()->find(['userId' => $user['id'], 'type' => 1])) {
-            $qrcode->incr('totalHeadCount', 1);
+            $qrcode->incr('totalHeadCount');
         }
-        $qrcode->incr('totalCount', 1);
-        $qrcode->incr('validCount', 1);
+        $qrcode->incr('totalCount');
+        $qrcode->incr('validCount');
         $qrcode->save();
 
         // 记下操作日志
@@ -129,11 +129,11 @@ class Plugin extends \Miaoxing\Plugin\BasePlugin
 
         // 判断是否已存在的用户
         if (!wei()->wechatQrcodeLog()->curApp()->find(['userId' => $user['id'], 'type' => 0])) {
-            $qrcode->incr('cancelHeadCount', 1);
+            $qrcode->incr('cancelHeadCount');
         }
         // 记录统计数据
-        $qrcode->incr('cancelCount', 1);
-        $qrcode->decr('validCount', 1);
+        $qrcode->incr('cancelCount');
+        $qrcode->decr('validCount');
         $qrcode->save();
 
         // 记下操作日志
