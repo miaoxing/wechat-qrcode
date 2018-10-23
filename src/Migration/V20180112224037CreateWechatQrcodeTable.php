@@ -28,6 +28,7 @@ class V20180112224037CreateWechatQrcodeTable extends BaseMigration
             ->string('content', 2048)
             ->text('articleIds')->comment('关注后弹出的图文编号')
             ->tinyInt('source', 1)
+            ->string('addTagIds', 32)->comment('扫码后加上的标签')
             ->datetime('createTime')
             ->int('createUser')
             ->exec();

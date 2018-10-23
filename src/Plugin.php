@@ -43,8 +43,16 @@ class Plugin extends \Miaoxing\Plugin\BasePlugin
             return;
         }
 
+        $this->addTags($qrcode, $user);
         $this->sendAward($app, $qrcode, $user);
         $this->incrStat($qrcode, $user);
+    }
+
+    protected function addTags(WeChatQrcode $qrcode, User $user)
+    {
+        if ($qrcode['addTagIds']) {
+            wei()->userTag->updateTag(explode(',', $qrcode['addTagIds']));
+        }
     }
 
     /**
