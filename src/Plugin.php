@@ -39,7 +39,7 @@ class Plugin extends \Miaoxing\Plugin\BasePlugin
 
         // 检查二维码是否存在
         $qrcode = wei()->weChatQrcode->findAndCacheBySceneId($sceneId);
-        if ($qrcode->isNew()) {
+        if (!$qrcode || $qrcode->isNew()) {
             return;
         }
 
