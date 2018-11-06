@@ -51,7 +51,13 @@ class Plugin extends \Miaoxing\Plugin\BasePlugin
     protected function addTags(WeChatQrcode $qrcode, User $user)
     {
         if ($qrcode['addTagIds']) {
-            wei()->userTag->updateTag(explode(',', $qrcode['addTagIds']));
+            $addTagIds = explode(',', $qrcode['addTagIds']);
+
+            if (!wei()->userTag->hasTag() && $defaultTagId = wei()->setting('user.defaultTagId')) {
+                $addTagIds[] = $defaultTagId;
+            }
+
+            wei()->userTag->updateTag($addTagIds);
         }
     }
 
