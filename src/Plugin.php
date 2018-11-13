@@ -45,7 +45,7 @@ class Plugin extends \Miaoxing\Plugin\BasePlugin
 
         $this->addTags($qrcode, $user);
         $this->sendAward($app, $qrcode, $user);
-        $this->incrStat($qrcode, $user);
+        $this->incrStat($app, $qrcode, $user);
     }
 
     protected function addTags(WeChatQrcode $qrcode, User $user)
@@ -88,12 +88,13 @@ class Plugin extends \Miaoxing\Plugin\BasePlugin
     /**
      * 增加扫描的人数和次数
      *
+     * @param WeChatApp $app
      * @param \Miaoxing\Wechat\Service\WeChatQrcode $qrcode
      * @param \Miaoxing\Plugin\Service\User $user
      */
-    protected function incrStat(WeChatQrcode $qrcode, User $user)
+    protected function incrStat(WeChatApp $app, WeChatQrcode $qrcode, User $user)
     {
-        if ($user['isValid']) {
+        if ($app->getEvent() !== 'subscribe') {
             return;
         }
 
@@ -129,10 +130,6 @@ class Plugin extends \Miaoxing\Plugin\BasePlugin
         // 判断是否存在二维码
         $qrcode = wei()->weChatQrcode()->findOrInit(['sceneId' => $user['source']]);
         if ($qrcode->isNew()) {
-            return;
-        }
-
-        if (!$user['isValid']) {
             return;
         }
 
