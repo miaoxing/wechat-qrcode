@@ -44,7 +44,6 @@ class Plugin extends \Miaoxing\Plugin\BasePlugin
         }
 
         $this->addTags($qrcode, $user);
-        $this->sendAward($app, $qrcode, $user);
         $this->incrStat($app, $qrcode, $user);
     }
 
@@ -58,30 +57,6 @@ class Plugin extends \Miaoxing\Plugin\BasePlugin
             }
 
             wei()->userTag->updateTag($addTagIds);
-        }
-    }
-
-    /**
-     * 发送奖励给用户
-     *
-     * @param WeChatApp $app
-     * @param \Miaoxing\Wechat\Service\WeChatQrcode $qrcode
-     * @param \Miaoxing\Plugin\Service\User $user
-     */
-    protected function sendAward(WeChatApp $app, WeChatQrcode $qrcode, User $user)
-    {
-        if ($qrcode['awardRule'] == WeChatQrcode::AWARD_RULE_FIRST_SUBSCRIPTION) {
-            // 是订阅事件,且用户是新创建才是首次关注
-            if ($app->getEvent() !== 'subscribe' || !$user->isCreated()) {
-                return;
-            }
-        }
-
-        $rets = $qrcode->getAward()->send($user);
-        foreach ($rets as $ret) {
-            if ($ret['code'] !== 1) {
-                $this->logger->warning('发送奖励失败', $ret);
-            }
         }
     }
 
