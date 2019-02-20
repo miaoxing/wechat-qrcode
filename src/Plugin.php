@@ -74,7 +74,11 @@ class Plugin extends \Miaoxing\Plugin\BasePlugin
         }
 
         // 判断是否已存在的用户
-        if (!wei()->wechatQrcodeLog()->curApp()->find(['userId' => $user['id'], 'type' => 1])) {
+        if (!wei()->wechatQrcodeLog()->curApp()->find([
+            'userId' => $user['id'],
+            'type' => 1,
+            'wechatQrcodeId' => $qrcode['id'],
+        ])) {
             $qrcode->incr('totalHeadCount');
         }
         $qrcode->incr('totalCount');
@@ -114,7 +118,11 @@ class Plugin extends \Miaoxing\Plugin\BasePlugin
         }
 
         // 判断是否已存在的用户
-        if (!wei()->wechatQrcodeLog()->curApp()->find(['userId' => $user['id'], 'type' => 0])) {
+        if (!wei()->wechatQrcodeLog()->curApp()->find([
+            'userId' => $user['id'],
+            'type' => 0,
+            'wechatQrcodeId' => $qrcode['id'],
+        ])) {
             $qrcode->incr('cancelHeadCount');
         }
         // 记录统计数据
